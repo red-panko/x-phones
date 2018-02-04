@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bootstrap Login &amp; Register Templates</title>
+        <title>Конхвертер телепонів</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -29,6 +29,9 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/libphonenumber-js/1.0.8/libphonenumber-js.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     </head>
 
     <body>
@@ -41,100 +44,58 @@
                 	
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1>Bootstrap Login &amp; Register Forms</h1>
+                            <h1>Конхвертер телепонів</h1>
                             <div class="description">
                             	<p>
-	                            	This is a free responsive <strong>"login and register forms"</strong> template made with Bootstrap. 
-	                            	Download it on <a href="http://azmind.com" target="_blank"><strong>AZMIND</strong></a>, 
-	                            	customize and use it as you like!
+	                            	Конхвертер за допомогою таємничої магії перетворює дурний формат телепону на ще дурніший. 
                             	</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="row">
-                        <div class="col-sm-5">
-                        	
-                        	<div class="form-box">
-	                        	<div class="form-top">
-	                        		<div class="form-top-left">
-	                        			<h3>Login to our site</h3>
-	                            		<p>Enter username and password to log on:</p>
-	                        		</div>
-	                        		<div class="form-top-right">
-	                        			<i class="fa fa-key"></i>
-	                        		</div>
-	                            </div>
-	                            <div class="form-bottom">
-				                    <form role="form" action="" method="post" class="login-form">
-				                    	<div class="form-group">
-				                    		<label class="sr-only" for="form-username">Username</label>
-				                        	<input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
-				                        </div>
-				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-password">Password</label>
-				                        	<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
-				                        </div>
-				                        <button type="submit" class="btn">Sign in!</button>
-				                    </form>
-			                    </div>
-		                    </div>
-		                
-		                	<div class="social-login">
-	                        	<h3>...or login with:</h3>
-	                        	<div class="social-login-buttons">
-		                        	<a class="btn btn-link-1 btn-link-1-facebook" href="#">
-		                        		<i class="fa fa-facebook"></i> Facebook
-		                        	</a>
-		                        	<a class="btn btn-link-1 btn-link-1-twitter" href="#">
-		                        		<i class="fa fa-twitter"></i> Twitter
-		                        	</a>
-		                        	<a class="btn btn-link-1 btn-link-1-google-plus" href="#">
-		                        		<i class="fa fa-google-plus"></i> Google Plus
-		                        	</a>
-	                        	</div>
-	                        </div>
-	                        
-                        </div>
                         
-                        <div class="col-sm-1 middle-border"></div>
-                        <div class="col-sm-1"></div>
                         	
-                        <div class="col-sm-5">
+                        <div class="col">
                         	
                         	<div class="form-box">
                         		<div class="form-top">
 	                        		<div class="form-top-left">
-	                        			<h3>Sign up now</h3>
-	                            		<p>Fill in the form below to get instant access:</p>
+	                        			<h3>Хворма конхвертації</h3>
+	                            		<p>Присуньте телепон у відповідне поле</p>
 	                        		</div>
 	                        		<div class="form-top-right">
-	                        			<i class="fa fa-pencil"></i>
+	                        			<i class="fa fa-phone-square"></i>
 	                        		</div>
 	                            </div>
 	                            <div class="form-bottom">
-				                    <form role="form" action="" method="post" class="registration-form">
-				                    	<div class="form-group">
-				                    		<label class="sr-only" for="form-first-name">First name</label>
-				                        	<input type="text" name="form-first-name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
-				                        </div>
-				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-last-name">Last name</label>
-				                        	<input type="text" name="form-last-name" placeholder="Last name..." class="form-last-name form-control" id="form-last-name">
-				                        </div>
-				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-email">Email</label>
-				                        	<input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email">
-				                        </div>
-				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-about-yourself">About yourself</label>
-				                        	<textarea name="form-about-yourself" placeholder="About yourself..." 
-				                        				class="form-about-yourself form-control" id="form-about-yourself"></textarea>
-				                        </div>
-				                        <button type="submit" class="btn">Sign me up!</button>
-				                    </form>
-			                    </div>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="siteformat">У хворматі хвойд:</label>
+      <div class="col-sm-6">
+        <input type="tel" class="form-control" id="siteformat" placeholder="0983438628" value="0983438628">
+      </div>
+      <div class="col-sm-3">
+	<input type="button" value="Магія" class="btn btn-primary" onClick="SiteToForum()">
+        <input type="button" value="Шукати об'яви" class="btn btn-primary" onClick="searchSite()">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="forumformat">У хворматі камрадів:</label>
+	<div class="col-sm-6">
+        <input type="tel" class="form-control" id="forumformat" placeholder="8(098)343-86-28" value="8(098)343-86-28">
+      </div>
+      <div class="col-sm-3">
+	<input type="button" value="Магія" class="btn btn-primary" onClick="ForumToSite()">
+        <input type="button" value="Шукати адчоти" class="btn btn-primary" onClick="searchForum()">
+      </div>
+    </div>
+  </form>
+
+
+				    </div>
                         	</div>
+
                         	
                         </div>
                     </div>
@@ -151,8 +112,7 @@
         			
         			<div class="col-sm-8 col-sm-offset-2">
         				<div class="footer-border"></div>
-        				<p>Made by Anli Zaimi at <a href="http://azmind.com" target="_blank"><strong>AZMIND</strong></a> 
-        					having a lot of fun. <i class="fa fa-smile-o"></i></p>
+        				<p>Пороблено в Україні з благословіння Рудого Панька</p>
         			</div>
         			
         		</div>
@@ -167,6 +127,48 @@
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
+
+<script>
+  function SiteToForum()
+  {
+    var siteformat = $('#siteformat').val();
+    var parsednum = libphonenumber.parse(siteformat,'UA');
+    console.log('parsed = ' + parsednum.phone);
+    var d = parsednum.phone.split('');
+    var forumformat = '8(0' + d[0]+d[1]+')'+d[2]+d[3]+d[4]+'-'+d[5]+d[6]+'-'+d[7]+d[8];
+    console.log(forumformat);
+    $('#forumformat').val(forumformat);
+  }
+  
+  function ForumToSite()
+  {
+    var forumformat = $('#siteformat').val();
+    var parsednum = libphonenumber.parse(forumformat,'UA');
+    console.log('parsed = ' + parsednum.phone);
+    var siteformat = parsednum.phone;
+    $('#siteformat').val(siteformat);
+  }
+  
+  function searchSite()
+  {
+    var url = 'https://www.google.com/search?';
+    url = url + 'q=site%3A%28ukrgo.com+OR+top-modals.com%29+%22';
+    url = url + '0983438628';
+    url = url + '%22&filter=0';
+    window.open(url,'_blank');
+  }
+  
+  function searchForum()
+  {
+    
+    var url = 'http://www.kiev-x.in/search.php?action=search&keywords=';
+    url = url + $('#forumformat').val();
+    url = url + '&search_in=all&sort_by=0&sort_dir=DESC&show_as=topics';
+    window.open(url,'_blank');
+    //author=&forum=-1&search_in=all&sort_by=0&sort_dir=DESC&show_as=topics&search=%CE%F2%EF%F0%E0%E2%E8%F2%FC
+  }
+</script>  
+
 
     </body>
 
