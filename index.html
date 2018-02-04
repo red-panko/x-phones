@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/libphonenumber-js/1.0.8/libphonenumber-js.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+</head>
+<body>
+? ??????? ?????:
+<input type="tel" id="siteformat" size="10" value="0983438628">
+<input type="button" id="sitetoforum" value="Convert" onClick="SiteToForum()">
+<input type="button" id="searchsite" value="?????? ??'???" onClick="searchSite()">  
+  <br/>
+  <br/>
+? ??????? ????????:
+<input type="tel" id="forumformat" size="15">  
+<input type="button" id="forumtosite" value="Convert" onClick="ForumToSite()">
+<input type="button" id="searcforum" value="?????? ??????" onClick="searchForum()">  
+  
+
+  
+<script>
+  function SiteToForum()
+  {
+    var siteformat = $('#siteformat').val();
+    var parsednum = libphonenumber.parse(siteformat,'UA');
+    console.log('parsed = ' + parsednum.phone);
+    var d = parsednum.phone.split('');
+    var forumformat = '8(0' + d[0]+d[1]+')'+d[2]+d[3]+d[4]+'-'+d[5]+d[6]+'-'+d[7]+d[8];
+    console.log(forumformat);
+    $('#forumformat').val(forumformat);
+  }
+  
+  function ForumToSite()
+  {
+    var forumformat = $('#siteformat').val();
+    var parsednum = libphonenumber.parse(forumformat,'UA');
+    console.log('parsed = ' + parsednum.phone);
+    var siteformat = parsednum.phone;
+    $('#siteformat').val(siteformat);
+  }
+  
+  function searchSite()
+  {
+    var url = 'https://www.google.com/search?';
+    url = url + 'q=site%3A%28ukrgo.com+OR+top-modals.com%29+%22';
+    url = url + '0983438628';
+    url = url + '%22&filter=0';
+    window.open(url,'_blank');
+  }
+  
+  function searchForum()
+  {
+    
+    var url = 'http://www.kiev-x.in/search.php?action=search&keywords=';
+    url = url + $('#forumformat').val();
+    url = url + '&search_in=all&sort_by=0&sort_dir=DESC&show_as=topics';
+    window.open(url,'_blank');
+    //author=&forum=-1&search_in=all&sort_by=0&sort_dir=DESC&show_as=topics&search=%CE%F2%EF%F0%E0%E2%E8%F2%FC
+  }
+ </script>  
+</body>
+</html>
