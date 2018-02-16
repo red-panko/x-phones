@@ -132,6 +132,15 @@
   function SiteToForum()
   {
     var siteformat = $('#siteformat').val();
+
+    while(siteformat.charAt(0) === '0')
+    {
+    	siteformat = siteformat.substr(1);
+    }
+ 
+    console.log('siteformat after preprocessing: ' + siteformat);	
+
+
     var parsednum = libphonenumber.parse(siteformat,'UA');
     console.log('parsed = ' + parsednum.phone);
     var d = parsednum.phone.split('');
@@ -143,6 +152,15 @@
   function ForumToSite()
   {
     var forumformat = $('#forumformat').val();
+    console.log('forumformat = ' + forumformat);
+    
+    while(forumformat.charAt(0) !== '(')
+    {
+    	forumformat = forumformat.substr(1);
+    }
+ 
+    console.log('forumformat after preprocessing: ' + forumformat);
+
     var parsednum = libphonenumber.parse(forumformat,'UA');
     console.log('parsed = ' + parsednum.phone);
     var siteformat = parsednum.phone;
