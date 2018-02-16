@@ -142,7 +142,7 @@
   
   function ForumToSite()
   {
-    var forumformat = $('#siteformat').val();
+    var forumformat = $('#forumformat').val();
     var parsednum = libphonenumber.parse(forumformat,'UA');
     console.log('parsed = ' + parsednum.phone);
     var siteformat = parsednum.phone;
