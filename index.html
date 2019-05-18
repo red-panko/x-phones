@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/css/form-elements.css">
+		    <link rel="stylesheet" href="assets/css/form-elements.css">
         <link rel="stylesheet" href="assets/css/style.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -29,7 +29,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/libphonenumber-js/1.0.8/libphonenumber-js.min.js"></script>
+	      <script src="https://cdnjs.cloudflare.com/ajax/libs/libphonenumber-js/1.0.8/libphonenumber-js.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     </head>
@@ -44,10 +44,10 @@
                 	
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1>Конхвертер телепонів. Версія 0.3</h1>
+                            <h1>Конхвертер телепонів. Версія 0.4</h1>
                             <div class="description">
                             	<p>
-	                            	Конхвертер за допомогою таємничої магії перетворює дурний формат телепону на ще дурніший. 
+	                            	Конхвертер за допомогою таємничої магії перетворює дурний формат телепону на ще дурніший 
                             	</p>
                             </div>
                         </div>
@@ -72,24 +72,29 @@
   <form class="form-horizontal">
     <div class="form-group">
       <label class="control-label col-sm-2" for="siteformat">У хворматі хвойд:</label>
-      <div class="col-sm-5">
-        <input type="tel" class="form-control" id="siteformat" placeholder="098XXXXXXX" value="098XXXXXXX">
+      <div class="col-sm-3">
+        <input type="tel" class="form-control" id="siteformat" placeholder="098XXXXXXX" value="">
       </div>
-      <div class="col-sm-4">
-	<input type="button" value="Магія" class="btn btn-primary" onClick="SiteToForum()">
-	<input type="button" value="Ukrgo" class="btn btn-primary" onClick="searchUkrgo()">      
-        <input type="button" value="Google" class="btn btn-primary" onClick="searchSite()">
+      <div class="col-sm-5">
+	       <input type="button" value="Магія" class="btn btn-primary" onClick="SiteToForum()">
+	       <input type="button" value="Ukrgo" class="btn btn-primary" onClick="searchUkrgo()">      
+         <input type="button" value="Google" class="btn btn-primary" onClick="searchSite()">
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="forumformat">У хворматі камрадів:</label>
-	<div class="col-sm-5">
-        <input type="tel" class="form-control" id="forumformat" placeholder="8(098)XXX-XX-XX" value="8(098)XXX-XX-XX">
-      </div>
-      <div class="col-sm-4">
-	<input type="button" value="Магія" class="btn btn-primary" onClick="ForumToSite()">
-        <input type="button" value="Шукати адчоти" class="btn btn-primary" onClick="searchForum()">
-      </div>
+       <label class="control-label col-sm-2" for="forumformat">У хворматі камрадів:</label>
+       <div class="col-sm-3">
+         <input type="tel" class="form-control" id="forumformat" placeholder="8(098)XXX-XX-XX" value="">
+       </div>
+       <div class="col-sm-5">
+         <input type="button" value="Магія" class="btn btn-primary" onClick="ForumToSite()">
+         <input type="button" value="Шукати адчоти" class="btn btn-primary" onClick="searchForum()">
+       </div>
+    </div>   
+    <div class="form-group">
+       <div class="col-sm-8 ">
+          <input type="button" value="ОЧИСТИТИ ГЕТЬ УСЕ!" class="btn btn-primary center-block" onClick="ClearAll()">
+        </div>
     </div>
   </form>
 
@@ -129,72 +134,10 @@
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
 
-<script>
-  function SiteToForum()
-  {
-    var siteformat = $('#siteformat').val();
+        <script src="xphone-lib.js"></script> 
 
-    while(siteformat.charAt(0) === '0')
-    {
-    	siteformat = siteformat.substr(1);
-    }
- 
-    console.log('siteformat after preprocessing: ' + siteformat);	
-
-
-    var parsednum = libphonenumber.parse(siteformat,'UA');
-    console.log('parsed = ' + parsednum.phone);
-    var d = parsednum.phone.split('');
-    var forumformat = '8(0' + d[0]+d[1]+')'+d[2]+d[3]+d[4]+'-'+d[5]+d[6]+'-'+d[7]+d[8];
-    console.log(forumformat);
-    $('#forumformat').val(forumformat);
-  }
-  
-  function ForumToSite()
-  {
-    var forumformat = $('#forumformat').val();
-    console.log('forumformat = ' + forumformat);
-    
-    while(forumformat.charAt(0) !== '(')
-    {
-    	forumformat = forumformat.substr(1);
-    }
- 
-    console.log('forumformat after preprocessing: ' + forumformat);
-
-    var parsednum = libphonenumber.parse(forumformat,'UA');
-    console.log('parsed = ' + parsednum.phone);
-    var siteformat = parsednum.phone;
-    $('#siteformat').val(siteformat);
-  }
-  
-  function searchSite()
-  {
-    var url = 'https://www.google.com/search?';
-    url = url + 'q=site%3A%28www.lonely-girl.kiev.ua+OR+top-modals.com+OR+naberu.com+OR+intim-uslugi.info+OR+prostikom.com+OR+smssex.com.ua%29+%22';
-    url = url + $('#siteformat').val(); ;
-    url = url + '%22&filter=0';
-    window.open(url,'_blank');
-  }
-  
-  function searchUkrgo()
-  {
-    var url = 'http://kiev.ukrgo.com/search.php?'
-    url = url + 'search=' 
-    url = url + $('#siteformat').val(); ;
-    window.open(url,'_blank');
-  }	
-	
-  function searchForum()
-  {
-    
-    var url = 'http://www.kiev-x.in/search.php?action=search&keywords=';
-    url = url + $('#forumformat').val();
-    url = url + '&search_in=all&sort_by=0&sort_dir=DESC&show_as=topics';
-    window.open(url,'_blank');
-    //author=&forum=-1&search_in=all&sort_by=0&sort_dir=DESC&show_as=topics&search=%CE%F2%EF%F0%E0%E2%E8%F2%FC
-  }
-</script>  
+        <script>var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push(101184880);</script>
+        <script async src="https://static.getclicky.com/js"></script>
 
 
     </body>
