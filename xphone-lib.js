@@ -42,7 +42,7 @@
     function searchSite()
     {
         var url = 'https://www.google.com/search?';
-        url = url + 'q=site%3A%28www.lonely-girl.kiev.ua+OR+top-modals.com+OR+naberu.com+OR+intim-uslugi.info+OR+prostikom.com+OR+smssex.com.ua%29+%22';
+        url = url + 'q=site%3A%28www.lonely-girl.kiev.ua+OR+top-modals.com+OR+keksik.net+OR+naberu.com+OR+intim-uslugi.info+OR+prostikom.com+OR+smssex.com.ua%29+%22';
         url = url + $('#siteformat').val(); ;
         url = url + '%22&filter=0';
         window.open(url,'_blank');
