@@ -31,6 +31,8 @@
         console.log('forumformat after preprocessing (v 0.5): ' + forumformat);
 
         var parsednum = libphonenumber.parse(forumformat,'UA');
+        
+        parsednum.phone = parsednum.phone + '0';
          
         if(!parsednum) return;
 
