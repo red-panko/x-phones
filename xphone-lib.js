@@ -23,7 +23,7 @@
         var forumformat = $('#forumformat').val();
         console.log('forumformat = ' + forumformat);
         
-        while(forumformat.length > 5 && forumformat.charAt(1) !== '(')
+        while(forumformat.length > 5 && forumformat.charAt(0) !== '(')
         {
             forumformat = forumformat.substr(1);
         }
