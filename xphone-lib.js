@@ -32,7 +32,7 @@
 
         var parsednum = libphonenumber.parse(forumformat,'UA');
         
-        parsednum.phone = parsednum.phone + '0';
+        parsednum.phone = '0' + parsednum.phone;
          
         if(!parsednum) return;
 
