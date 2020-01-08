@@ -28,7 +28,7 @@
             forumformat = forumformat.substr(1);
         }
     
-        console.log('forumformat after preprocessing: ' + forumformat);
+        console.log('forumformat after preprocessing (v 0.5): ' + forumformat);
 
         var parsednum = libphonenumber.parse(forumformat,'UA');
          
