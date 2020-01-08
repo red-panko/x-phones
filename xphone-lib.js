@@ -2,7 +2,7 @@
     {
         var siteformat = $('#siteformat').val();
 
-        while(siteformat.charAt(0) === '0')
+        while(siteformat.length > 5 && siteformat.charAt(0) === '0')
         {
             siteformat = siteformat.substr(1);
         }
@@ -23,7 +23,7 @@
         var forumformat = $('#forumformat').val();
         console.log('forumformat = ' + forumformat);
         
-        while(forumformat.charAt(0) !== '(')
+        while(forumformat.length > 5 && forumformat.charAt(0) !== '(')
         {
             forumformat = forumformat.substr(1);
         }
